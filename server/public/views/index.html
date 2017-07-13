@@ -13,24 +13,30 @@
 
     <div id="ownerRegistration">
       <h2>Owner Registration</h2>
-      <input placeholder="First Name" id="firstName"></input>
-      <input placeholder="Last Name" id="lastName"></input>
-      <button id="register">Register</button>
+      <div class="ownerName">
+        <input placeholder="First Name" id="firstName"></input>
+        <input placeholder="Last Name" id="lastName"></input>
+        <button id="register">Register</button>
+      </div>
     </div>
 
     <div id="pets">
       <h2>Pets</h2>
-      <select>
-      <option value="">Owner's Name</option>
-      </select>
-      <input placeholder="Pet Name" id="petName"></input>
-      <input placeholder="Pet Breed" id="petBreed"></input>
-      <input placeholder="Pet Color" id="petColor"></input>
-      <button id="addPet">Add Pet</button>
+      <div class="petInfo">
+      </div>
+      </div>
+        <select>
+          <option value="">Owner's Name</option>
+        </select>
+        <input placeholder="Pet Name" id="petName"></input>
+        <input placeholder="Pet Breed" id="petBreed"></input>
+        <input placeholder="Pet Color" id="petColor"></input>
+        <button id="addPet">Add Pet</button>
+      </div>
     </div>
 
-    <div id="petTable">
-    <table>
+    <div>
+    <table id="petTable">
       <tr>
         <th>Owner</th>
         <th>Pet</th>
