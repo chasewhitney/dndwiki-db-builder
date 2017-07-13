@@ -88,6 +88,7 @@ router.delete('/:id', function(req, res){
       db.query(queryText, [id], function(errorMakingQuery, result){
         done();
         if(errorMakingQuery) {
+          console.log('ID IS:', id);
           console.log('Attempted to query with', queryText);
           console.log('Error making query');
           res.sendStatus(500);
