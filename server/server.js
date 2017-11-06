@@ -3,11 +3,14 @@ var app = express();
 var bodyParser = require('body-parser');
 var port = process.env.PORT || 5000;
 var path = require('path');
-var petRoute = require('./routes/pets.js');
+var builderRoute = require('./routes/builder.js');
+var fetcherRoute = require('./routes/fetcher.js');
 
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-app.use('/pets', petRoute);
+app.use('/builder', builderRoute);
+app.use('/fetcher', fetcherRoute);
 
 app.get('/*', function(req, res) {
   var file = req.params[0] || '/views/index.html';

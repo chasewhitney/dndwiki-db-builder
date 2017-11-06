@@ -2,53 +2,20 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Pet Hotel</title>
-    <script type="text/javascript" src="vendors/jquery.js"></script>
+    <title>D&D Wiki Database Builder</title>
+    <script type="text/javascript" src="vendors/angular.js"></script>
     <script type="text/javascript" src="scripts/client.js"></script>
     <link rel="stylesheet" href="views/main.css">
   </head>
-  <body>
-<div id="main">
-  <h1>Owners and Pets</h1>
+  <body ng-app="myApp">
+    <div ng-controller="BuilderController as bc">
 
-    <div id="ownerRegistration">
-      <h2>Owner Registration</h2>
-      <div class="ownerName">
-        <input placeholder="First Name" id="firstName"></input>
-        <input placeholder="Last Name" id="lastName"></input>
-        <button id="register">Register</button>
-      </div>
-    </div>
+<h1>BUILDER</h1>
+<button type="button" name="button" ng-click="bc.test()">TEST</button>
+<button type="button" name="button" ng-click="bc.getSpellList()">GET SPELL LIST</button>
+<button type="button" name="button" ng-click="bc.getSpellData(bc.spellList)">GET SPELL DATA</button>
+<button type="button" name="button" ng-click="bc.writeData(bc.allSpellData)">WRITE ALL SPELL DATA</button>
+</div>
 
-    <div id="pets">
-      <h2>Pets</h2>
-      <div class="petInfo">
-      </div>
-      </div>
-        <select>
-          <option value="">Owner's Name</option>
-        </select>
-        <input placeholder="Pet Name" id="petName"></input>
-        <input placeholder="Pet Breed" id="petBreed"></input>
-        <input placeholder="Pet Color" id="petColor"></input>
-        <button id="addPet">Add Pet</button>
-      </div>
-    </div>
-
-    <div>
-    <table id="petTable">
-      <tr>
-        <th>Owner</th>
-        <th>Pet</th>
-        <th>Breed</th>
-        <th>Color</th>
-        <th>Update</th>
-        <th>Delete</th>
-        <th>Check In/Out</th>
-      </tr>
-    </table>
-    </div>
-
-  </div>
   </body>
 </html>

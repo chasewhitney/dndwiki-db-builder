@@ -4,7 +4,7 @@ var router = express.Router();
 var poolModule = require('../modules/pool.js');
 var pool = poolModule;
 
-//CREATE aka post for pet owner name inputs
+
 router.post('/owner', function(req, res){
   var owner = req.body;
   console.log('in post route', req.body);
@@ -78,7 +78,7 @@ router.delete('/:id', function(req, res){
   console.log('Delete route called with id of', id);
   pool.connect(function(errorConnectingToDatabase, db, done){
     if(errorConnectingToDatabase) {
-      console.log('Error connecting to the database.');
+      console.log('Error connecting to the database.', errorConnectingToDatabase);
       res.sendStatus(500);
     } else {
   //this queryText does not work because it is attempted to delete a pet
@@ -127,26 +127,6 @@ router.put('/:id', function(req, res){
 });
 
 
-//UPDATE aka put route for Visit - edit
-// router.put('visit/:id', function(req, res){
-//   console.log('in put route', req.params);
-//   pool.connect(function(errConnectingToDatabase, db, done){
-//     if(errConnectingToDatabase) {
-//       console.log('There was an error connecting to the database', errConnectingToDatabase);
-//       res.sendStatus(500);
-//     } else {
-//       var queryText = 'UPDATE pets SET "name" = $1, "breed" = $2, "color" = $3 WHERE "id" = $4;';
-//       db.query(queryText, [req.params.id], function(errMakingQuery, result){
-//         done();
-//         if(errMakingQuery) {
-//           console.log('There was an error making the INSERT query', errMakingQuery);
-//           res.sendStatus(500);
-//         } else {
-//           res.sendStatus(200);
-//         }
-//       });
-//     }
-//   });
-// });
+
 
 module.exports = router;
