@@ -31,7 +31,7 @@ router.post('/getSpellData', function(req, res){
       console.log('error:', err);
       res.sendStatus(500);
     } else {
-      spellList.push(body);
+      spellList.push(JSON.parse(body));
       res.send(body);
     }
   });
