@@ -1,11 +1,14 @@
 console.log("client.js sourced");
 var myApp = angular.module('myApp', []);
 
-myApp.controller('BuilderController', function($http){
+myApp.controller('BuilderController', function($http, $scope, $timeout){
 
   var vm = this;
-
+  vm.items = ["hi", "hello", "goodbye"];
+  vm.testData = [];
   //GET RAW DATA
+  getData = function(){
+
   var requestURL = 'https://raw.githubusercontent.com/ChaseWhitney/dndwiki-db-builder/master/spellData.json';
     var request = new XMLHttpRequest();
     request.open('GET', requestURL);
@@ -13,12 +16,13 @@ myApp.controller('BuilderController', function($http){
     request.send();
     request.onload = function() {
       vm.testData = request.response.data;
+      console.log('vm.testData typeof:', typeof vm.testData);
       console.log('vm.testData is:', vm.testData);
       console.log('vm.testData[0] is:', vm.testData[0]);
       console.log('vm.testData[0].name is:', vm.testData[0].name);
-
     };
 
+};
     //END GET RAW DATA
 
   vm.test = function(){
@@ -58,5 +62,7 @@ myApp.controller('BuilderController', function($http){
   };
 
 
-
+getData();
+$timeout(function(){vm.loaded = true;}, 1000);
+$timeout(function(){vm.loaded = true;}, 3000);
 });

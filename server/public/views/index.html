@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>D&D Wiki Database Builder</title>
-    <script type="text/javascript" src="vendors/angular.js"></script>
-    <script type="text/javascript" src="scripts/client.js"></script>
-    <link rel="stylesheet" href="views/main.css">
-  </head>
-  <body ng-app="myApp">
-    <div ng-controller="BuilderController as bc">
+<head>
+  <meta charset="utf-8">
+  <title>D&D Wiki Database Builder</title>
+  <script type="text/javascript" src="vendors/angular.js"></script>
+  <script type="text/javascript" src="scripts/client.js"></script>
+  <link rel="stylesheet" href="views/main.css">
+</head>
+<body ng-app="myApp">
+  <div ng-controller="BuilderController as bc">
 
-<h1>BUILDER</h1>
-<button type="button" name="button" ng-click="bc.test()">TEST</button>
-<button type="button" name="button" ng-click="bc.getSpellList()">GET SPELL LIST</button>
-<button type="button" name="button" ng-click="bc.getSpellData(bc.spellList)">GET SPELL DATA</button>
-<button type="button" name="button" ng-click="bc.writeData(bc.allSpellData)">WRITE ALL SPELL DATA</button>
-</div>
+    <h1>BUILDER</h1>
+    <button type="button" name="button" ng-click="bc.test()">TEST</button>
+    <button type="button" name="button" ng-click="bc.getSpellList()">GET SPELL LIST</button>
+    <button type="button" name="button" ng-click="bc.getSpellData(bc.spellList)">GET SPELL DATA</button>
+    <button type="button" name="button" ng-click="bc.writeData(bc.allSpellData)">WRITE ALL SPELL DATA</button>
 
-  </body>
+    <p ng-repeat="item in bc.testData">X</p>
+    <!-- <p ng-repeat="iz in bc.items">X</p> -->
+  </div>
+
+
+</body>
 </html>
