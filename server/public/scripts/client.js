@@ -114,10 +114,14 @@ for (var i = 0; i < vm.allSpellData.length; i++) {
 
   };
 
-  vm.writeToDb = function(){
-    $http.put('/builder/writeData').then(function(response){
-      console.log('got response from writeData:');
-    });
+  vm.writeSpells = function(){
+    console.log('writing spells in:', vm.dbSpells);
+    for (var i = 0; i < vm.dbSpells.length; i++) {
+      $http.post('/builder/writeSpells', vm.dbSpells[i]).then(function(response){
+        console.log('got response from writeSpells:');
+      });
+    }
+
   };
 
 

@@ -5,16 +5,37 @@ var poolModule = require('../modules/pool.js');
 var pool = poolModule;
 
 
-router.post('/owner', function(req, res){
-  var owner = req.body;
+router.post('/writeSpells', function(req, res){
+  var newSpell= req.body;
+  var values = [
+    newSpell.casting_time,
+    newSpell.classes,
+    newSpell.components,
+    newSpell.concentration,
+    newSpell.description,
+    newSpell.duraction,
+    newSpell.index,
+    newSpell.higher_level,
+    newSpell.level,
+    newSpell.material,
+    newSpell.name,
+    newSpell.page,
+    newSpell.range,
+    newSpell.ritual,
+    newSpell.school,
+    newSpell.url,
+  ];
   console.log('in post route', req.body);
   pool.connect(function(errConnectingToDatabase, db, done){
     if(errConnectingToDatabase) {
       console.log('There was an error connecting to the database', errConnectingToDatabase);
       res.sendStatus(500);
     } else {
-      var queryText= 'INSERT INTO owners ("first_name", "last_name") VALUES ($1, $2);';
-      db.query(queryText,[owner.first_name, owner.last_name], function(errMakingQuery, result){
+
+      var queryText= 'INSERT INTO spells ("casting_time", "classes", "components", "concentration", "description",' +
+      '"duration", "index", "higher_level", "level", "material", "name", "page", "range", "ritual",' +
+      '"school", "url") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16);';
+      db.query(queryText, values, function(errMakingQuery, result){
         done();
         if(errMakingQuery) {
           console.log('There was an error making the INSERT query', errMakingQuery);
