@@ -12,10 +12,13 @@
 
     <h1>BUILDER</h1>
     <button type="button" name="button" ng-click="bc.test()">TEST</button>
-    <button type="button" name="button" ng-click="bc.getSpellList()">GET SPELL LIST</button>
+    <!-- <button type="button" name="button" ng-click="bc.getSpellList()">GET SPELL LIST</button>
     <button type="button" name="button" ng-click="bc.getSpellData(bc.spellList)">GET SPELL DATA</button>
-    <button type="button" name="button" ng-click="bc.writeData(bc.allSpellData)">WRITE ALL SPELL DATA</button>
-
+    <button type="button" name="button" ng-click="bc.writeData(bc.allSpellData)">WRITE ALL SPELL DATA</button> -->
+    <button type="button" name="button" ng-click="bc.convertArrays()">Convert Arrays</button>
+    <button type="button" name="button" ng-click="bc.createDbObjects()">Build Objects for DB</button>
+    <button type="button" name="button" ng-click="bc.writeToDb()">Write to DB</button>
+    {{bc.testText}}
     <p ng-repeat="item in bc.testData">X</p>
     <!-- <p ng-repeat="iz in bc.items">X</p> -->
   </div>
